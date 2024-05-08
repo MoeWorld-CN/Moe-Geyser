@@ -1,7 +1,22 @@
-name: Build-origin
+name: Build
 
 on:
-  workflow_dispatch:  # 手动触发
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - 'gh-readonly-queue/**'
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/*.yml'
+      - '.github/workflows/build-remote.yml'
+      - '.github/workflows/preview.yml'
+      - '.github/workflows/pull-request.yml'
+      - '.idea/copyright/*.xml'
+      - '.gitignore'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
+      - 'Jenkinsfile '
+      - 'README.md'
+      - 'licenseheader.txt'
 
 jobs:
   build:
